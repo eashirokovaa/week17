@@ -1,0 +1,23 @@
+.container {
+  width: 300px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.input {
+  display: flex;
+  flex-direction: column;
+}
+.input > input {
+  padding: 7px 0px;
+  margin-bottom: 10px;
+}
+div #result {
+  margin-top: 10px;
+}
+.task4, .task2 {
+  padding: 12px;
+  margin: 20px;
+}
+#array {
+  margin-top: 10px;
+}
