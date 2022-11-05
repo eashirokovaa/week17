@@ -55,16 +55,15 @@ function formatDate(date) {
   if (difference < 1000) {
     return "прямо сейчас";
   }
-  let seconds = difference / 1000;
+  let seconds = Math.floor(difference / 1000);
   if (seconds < 60) {
     return seconds + "сек. назад";
   }
-  let minutes = difference / 6000;
+  let minutes = Math.floor(difference / 6000);
   if (minutes < 60) {
     return minutes + "мин. назад";
   }
 }
-//???
 //Task4
 function getCalculation() {
   array = [];
