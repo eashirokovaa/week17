@@ -26,13 +26,26 @@ function getResult() {
   }
 }
 //Task2
+document.addEventListener("DOMContentLoaded", function(event) {
+  let user = localStorage.getItem("author")
+  if (user != null) {
+    document.getElementById("author").value = user;
+  }
+})
 comments = [];
+authors = [];
 function addComment() {
-  comment = document.getElementById("comment").value;
+  let author = document.getElementById("author").value;
+  let comment = document.getElementById("comment").value;
   comments.push(comment);
+  authors.push(author);
+  if (localStorage.getItem("author")==null) {
+    localStorage.setItem("author", author)
+  }
   checkSpam();
   generateComment();
   document.getElementById("comment").value = "";
+  document.getElementById("author").value = "";
 }
 function checkSpam() {
   for (let comment of comments) {
@@ -45,7 +58,8 @@ function checkSpam() {
 function generateComment() {
   let optionsString = "";
   for (let comment of comments) {
-    optionsString += `<p>${comment}</p>`;
+    let a = comments.indexOf(comment);
+    optionsString += `<p><span class="author">${authors[a]}:</span> <span>${comment}</span></p>`;
   }
   document.getElementById("task2").innerHTML = optionsString;
 }
